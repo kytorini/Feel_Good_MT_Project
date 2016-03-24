@@ -79,3 +79,9 @@ get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
+
+post '/delete' do
+  b = Bookmark.find(params[:bookmark_id])
+  b.destroy 
+  redirect '/bookmarks'
+end
