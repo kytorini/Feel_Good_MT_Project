@@ -2493,11 +2493,11 @@
 		padding-top: 3em;
 	}
 
-/* destop version*/
+/* Logo */
 	#logo {
 		position: absolute;
 		left: 1em;
-		top: 0;
+		top: .2em;
 		height: 3em;
 		line-height: 2em;
 		letter-spacing: -1px;
@@ -2509,6 +2509,22 @@
 			font-size: 3.25em;
 		}
 
+/* Logo Title */
+	#logo_title {
+		position: absolute;
+		left: 2.5em;
+		top: 0;
+		height: 3em;
+		line-height: 2em;
+		letter-spacing: -1px;
+		font-size: 1.5em;
+		font-weight: normal;
+	}
+
+		#logo_title a {
+			font-size: 3.25em;
+		}
+/* Nav Bar */
 	#nav {
 		position: absolute;
 		right: 0.5em;

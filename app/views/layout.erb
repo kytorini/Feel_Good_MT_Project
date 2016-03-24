@@ -13,32 +13,31 @@
       <header id="header">
 
         <!-- Logo -->
-          <!-- <h1><img src="../../images/8icon.png" alt="magic8_icon" height="42" width="42"></h1> -->
-
-          <h1 id="logo">MAGIC 8 ME</h1>
+          <h1 id="logo"><img src="/images/8icon.png" alt="magic8_icon" height="42" width="42"></h1>
+          <h1 id="logo_title">MAGIC 8 ME</h1>
 
         <!-- Nav -->
           <nav id="nav">
             <ul>
+              <% if current_user %>
+                <li>Welcome Back, <%= current_user.username %></li>
+
+                <li><a href="/logout">Log Out</a></li>
+              <% else %>
+                <li><a href="/login">Log in</a></li>
                 <li><a href="#signup">Sign up</a></li>
-                <li><a href="#login">Sign in</a></li>
+              <% end %>
+              
             </ul>
           </nav>
 
       </header>
 
     <!-- Main -->
-      <section id="intro" class="main style1 dark fullscreen">
-        <div class="content container 75%">
-          <header>
-            <h2>Quotes for you.</h2>
-          </header>
-          <p>Some people are like clouds. When they go away, it's a brighter day.</p>
-          <%= yield %>
-          <footer>
-          </footer>
-        </div>
-      </section>
+    <section id="intro" class="main style1 dark fullscreen">
+      <%= yield %>
+    </section>
+  
     </body>
   
 </html>

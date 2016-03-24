@@ -1,3 +1,16 @@
-<h1>Home Page</h1>
+<!-- <h1>Home Page</h1>
 <a href="/submit">Submit Some Advice, Jimmy...</a>
-<a href="/show">HIT ME WITH AN AWESOME ADVICE (please)</a>
+<a href="/show">HIT ME WITH AN AWESOME ADVICE (please)</a> -->
+
+<div class="content container 75%">
+  <header>
+    <h2>Time to get awsome advices.</h2>
+  </header>
+  <p>Some people are like clouds. When they go away, it's a brighter day.</p>
+  <ul>
+    <% if current_user %>
+    <li><a href="/submit">Post Advice</a></li>
+    <li><a href="/show">Get Advice</a></li>
+    <% end %>
+  </ul>
+</div>
