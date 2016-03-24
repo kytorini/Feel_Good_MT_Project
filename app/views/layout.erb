@@ -1,23 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <link rel="stylesheet" href="/stylesheets/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/javascript/application.js"></script>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>MAGIC 8 ME</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/stylesheets/main.css" />
+  </head>
+  <body>
 
-  <title></title>
-  <% if current_user %>
-    <div class="navbar-brand"> Logged in as: <%= current_user.username %> </div>
-    <a href="/logout">
-        <button class="btn btn-default" type="submit">Log Out</button>
-    </a>
-  <% else %>
-    <a class="navbar-brand" href="/login">Login</a>
-  <% end %>
-</head>
-<body>
-  <%= yield %>
-</body>
+    <!-- Header -->
+      <header id="header">
+
+        <!-- Logo -->
+          <!-- <h1><img src="../../images/8icon.png" alt="magic8_icon" height="42" width="42"></h1> -->
+
+          <h1 id="logo">MAGIC 8 ME</h1>
+
+        <!-- Nav -->
+          <nav id="nav">
+            <ul>
+                <li><a href="#signup">Sign up</a></li>
+                <li><a href="#login">Sign in</a></li>
+            </ul>
+          </nav>
+
+      </header>
+
+    <!-- Main -->
+      <section id="intro" class="main style1 dark fullscreen">
+        <div class="content container 75%">
+          <header>
+            <h2>Quotes for you.</h2>
+          </header>
+          <p>Some people are like clouds. When they go away, it's a brighter day.</p>
+          <%= yield %>
+          <footer>
+          </footer>
+        </div>
+      </section>
+    </body>
+  
 </html>
