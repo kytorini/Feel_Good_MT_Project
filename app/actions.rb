@@ -1,4 +1,12 @@
-# Homepage (Root path)
+helpers do
+  def current_user
+    if session[:user_id]
+      User.find(session[:user_id])
+    end
+  end
+
+end
+
 get '/' do
   erb :'/index'
 end
@@ -20,8 +28,9 @@ post '/submit' do
   @advice = Advice.new(
     category: "general",
     content: params[:content],
-    user_id: 1,
+    user_id: params[:current_user]
   ) 
+  current_user.advices << @advice
   if @advice.save
     redirect '/'
   else 
@@ -29,6 +38,36 @@ post '/submit' do
   end
 end
 
-get '/:user_id' do
+get '/bookmarks' do
+  @user = User.find(1)
+  @ad = @user.advices.all
+  @advices = @ad.map do |ad| ad.content end 
   erb :'/user_id'
+end
+
+get '/login' do
+  @message = params['message']
+  erb :'/login'
+end
+
+post '/login' do
+  @user = User.find_by(username: params[:username])
+  if @user 
+    if @user && @user.password == params[:password]
+      session[:user_id] = @user.id
+      @message = "Login successful"
+      redirect "/?message=#{@message}"
+    else
+      @message = "Invalid password"
+      redirect "/login?message=#{@message}"
+    end
+  else
+    @message = "Invalid username"
+    redirect "/login?message=#{@message}"
+  end
+end
+
+get '/logout' do
+  session[:user_id] = nil
+  redirect '/'
 end
