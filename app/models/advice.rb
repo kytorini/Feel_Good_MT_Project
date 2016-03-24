@@ -4,7 +4,7 @@ class Advice < ActiveRecord::Base
   has_many :bookmarks
   has_many :users, through: :bookmarks
 
-  validates :content, presence: true
+  validates :content, presence: true, length: { minimum: 5, maximum: 200 }
 
   def bookmarkers
     self.users

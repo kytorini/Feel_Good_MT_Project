@@ -31,14 +31,16 @@ post '/submit' do
     user_id: params[:current_user]
   ) 
   current_user.advices << @advice
-  if @advice.save
-    redirect '/'
-  else 
-    erb :'/submit'
+    if @advice.save
+      @message = "Submit successful"
+      redirect "/"
+    else 
+      @message = "Could not submit"
+      redirect "/submit?message=#{@message}"
   end
 end
 
-get '/bookmarks' do
+get '/posts' do
   erb :'/user_id'
 end
 

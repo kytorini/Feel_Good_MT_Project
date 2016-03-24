@@ -4,7 +4,7 @@
    <%= current_user.username %>
  <% else %>
   <% if @message %> 
-    <%= @message %>
+    <p><%= @message %></p>
   <% end %>
 <form class="form-horizontal" method="POST" action="/login">
   <div class="form-group">

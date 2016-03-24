@@ -1,13 +1,10 @@
-<p> Your bookmarked advice: </p>
+<p> Your posted advice: </p>
 
 <p>
 
 <ol>
-<% current_user.bookmarks.map do |bookmark| %>
- <li><%= "#{bookmark.advice.content}" %><form action="/delete" method="POST">
-    <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
-      <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Delete!</button>
-  </form></li>
+<% current_user.advices.map do |advice| %>
+ <li><%= "#{advice.content}" %></li>
 <% end %>
 
 </ol>
