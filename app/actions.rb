@@ -7,8 +7,11 @@ get '/search' do
   erb :'search'
 end
 
-get '/search/:id' do
-  erb :'search/show'
+get '/show' do
+  @advice = Advice.where(id: rand(0...Advice.count))
+  unless @advice.empty?
+    @advice = @advice[0].content
+  erb :'/show'
 end
 
 get '/post' do
