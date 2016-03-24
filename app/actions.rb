@@ -8,9 +8,7 @@ get '/search' do
 end
 
 get '/show' do
-  @advice = Advice.where(id: rand(0...Advice.count))
-  unless @advice.empty?
-    @advice = @advice[0].content
+  @advice = Advice.order("RANDOM()").first
   erb :'/show'
 end
 
