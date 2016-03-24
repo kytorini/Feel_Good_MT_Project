@@ -1,1 +1,6 @@
 <p> Your AMAZING advice: <%= @advice.content %></p>
+  <form action="/bookmark" method="POST">
+    <input type="hidden" name="advice_id" value="<%= @advice.id %>">
+      <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Bookmark!</button>
+      <a href="/bookmarks"> VIEW ALL YOUR SNAZZY MAZZY BOOKMARKS </a>
+  </form>

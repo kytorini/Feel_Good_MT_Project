@@ -1,0 +1,14 @@
+<p> Your posted advice: </p>
+
+<p>
+
+<ol>
+<% current_user.bookmarks.map do |bookmark| %>
+ <li><%= "#{bookmark.advice.content}" %></li>
+<% end %>
+
+</ol>
+
+
+</p>
+
