@@ -14,15 +14,16 @@
 
         <!-- Logo -->
           <h1 id="logo"><img src="/images/8icon.png" alt="magic8_icon" height="42" width="42"></h1>
-          <h1 id="logo_title">MAGIC 8 ME</h1>
+          <h1 ><a href="/" id="logo_title">MAGIC 8 ME</a></h1>
 
         <!-- Nav -->
           <nav id="nav">
             <ul>
               <% if current_user %>
                 <li>Welcome Back, <%= current_user.username %></li>
-
-                <li><a href="/logout">Log Out</a></li>
+                <li><a href="/submit">Post Advice</a></li>
+                <li><a href="/show">Get Advice</a></li>
+                <li><a href="/logout">LOG OUT</a></li>
               <% else %>
                 <li><a href="/login">Log in</a></li>
                 <li><a href="#signup">Sign up</a></li>

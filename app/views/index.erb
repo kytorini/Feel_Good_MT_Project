@@ -1,45 +1,27 @@
-<!-- <<<<<<< HEAD
-<h1>Home Page</h1>
-  <button class="btn btn-default" type="submit">
-    <a href="/submit">Submit</a>
-  </button>
-  <button class="btn btn-default" type="submit">
-    <a href="/show">MAGIC8 ME</a>
-  </button>
-======= -->
-<!-- <h1>Home Page</h1>
-<a href="/submit">Submit Some Advice, Jimmy...</a>
-<a href="/show">HIT ME WITH AN AWESOME ADVICE (please)</a> -->
+
 
 <div class="content container 75%">
   <header>
     <h2>Time to get awesome advice.</h2>
   </header>
-  <p>Some people are like clouds. When they go away, it's a brighter day.</p>
-  <ul>
-    <% if current_user %>
-    <li><a href="/submit">Post Advice</a></li>
-    <li><a href="/show">Get Advice</a></li>
-    <% end %>
-  </ul>
-</div>
+  <p>Some people are like clouds. When they go away, it's a brighter day.</p> 
 
-<p> Your bookmarked advice: </p>
+  <br>
+  <br>
 
-<p>
+  <% if current_user %>
+  <p> Your bookmarked advice: </p>
+  <p>
+    <ol>
+      <% current_user.bookmarks.map do |bookmark| %>
+      <li>
+       <%= "#{bookmark.advice.content}" %><form action="/delete" method="POST">
+       <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
+       <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Delete!</button>
+     </form></li>
+     <a href="/posts">View All Your Posted Advice</a>
+     <% end %>
+   </ol>
+ </p>
+ <% end %>
 
-<ol>
-<% current_user.bookmarks.map do |bookmark| %>
- <li><%= "#{bookmark.advice.content}" %><form action="/delete" method="POST">
-    <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
-      <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Delete!</button>
-  </form></li>
-<% end %>
-
-</ol>
-
-<a href="/posts">View All Your Posted Advice</a>
-
-</p>
-
-<!-- >>>>>>> 36d695a5f2818ffefde7dec1940553cf72188b2e -->

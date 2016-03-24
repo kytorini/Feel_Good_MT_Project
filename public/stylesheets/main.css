@@ -2432,11 +2432,12 @@
 			z-index: -1;
 		}
 
+		/*adjust loading animation speed*/
 		body:after {
-			-moz-animation: overlay-hide 1.5s ease-in forwards !important;
-			-webkit-animation: overlay-hide 1.5s ease-in forwards !important;
-			-ms-animation: overlay-hide 1.5s ease-in forwards !important;
-			animation: overlay-hide 1.5s ease-in forwards !important;
+			-moz-animation: overlay-hide 0.5s ease-in forwards !important;
+			-webkit-animation: overlay-hide 0.5s ease-in forwards !important;
+			-ms-animation: overlay-hide 0.5s ease-in forwards !important;
+			animation: overlay-hide 0.5s ease-in forwards !important;
 			background: #ffffff;
 			content: '';
 			display: block;
