@@ -39,10 +39,18 @@ post '/submit' do
 end
 
 get '/bookmarks' do
-  @user = User.find(1)
-  @ad = @user.advices.all
-  @advices = @ad.map do |ad| ad.content end 
   erb :'/user_id'
+end
+
+post '/bookmark' do
+  @bookmark = Bookmark.new(user_id: current_user.id, advice_id: params[:advice_id])
+  if @bookmark.save
+      @message = "Bookmark successful"
+      redirect "/show?message=#{@message}"
+    else 
+      @message = "Can only bookmark once"
+      redirect "/show?message=#{@message}"
+  end
 end
 
 get '/login' do
