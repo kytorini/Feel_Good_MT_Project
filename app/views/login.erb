@@ -1,6 +1,10 @@
-<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
  <div class="nav navbar-left">
- <% if session[:user_id] %>
+ 
+ </div>
+</div> -->
+<section id="intro" class="main style2 dark fullscreen">
+<% if session[:user_id] %>
    <%= current_user.username %>
  <% else %>
   <% if @message %> 
@@ -23,6 +27,5 @@
     </div>
   </div>
 </form>
- <% end %>
- </div>
-</div>
+<% end %>
+</section>
