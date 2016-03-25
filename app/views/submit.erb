@@ -1,3 +1,5 @@
+<section id="intro" class="main style2 dark fullscreen">
+<% if current_user %>
 <% if @message %>
   <%= @message %>
 <% end %>
@@ -10,3 +12,9 @@
   <div class="input-group input-group-lg">
  <input type="submit" class="form-control" placeholder="Submit" aria-describedby="sizing-addon3" value="Submit" >
 </form>
+</div>
+</form>
+<% else %>
+  <% redirect '/' %>
+</section>
+<% end %>

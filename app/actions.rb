@@ -33,22 +33,22 @@ post '/submit' do
   current_user.advices << @advice
     if @advice.save
       @message = "Submit successful"
-      redirect "/"
+      redirect "/profile"
     else 
       @message = "Could not submit"
       redirect "/submit?message=#{@message}"
   end
 end
 
-get '/posts' do
-  erb :'/user_id'
+get '/profile' do
+  erb :'/profile'
 end
 
 post '/bookmark' do
   @bookmark = Bookmark.new(user_id: current_user.id, advice_id: params[:advice_id])
   if @bookmark.save
       @message = "Bookmark successful"
-      redirect "/?message=#{@message}"
+      redirect "/profile?message=#{@message}"
     else 
       @message = "Can only bookmark once"
       redirect "/show?message=#{@message}"
@@ -66,7 +66,7 @@ post '/login' do
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
       @message = "Login successful"
-      redirect "/?message=#{@message}"
+      redirect "/profile?message=#{@message}"
     else
       @message = "Invalid password"
       redirect "/login?message=#{@message}"
@@ -85,5 +85,5 @@ end
 post '/delete' do
   b = Bookmark.find(params[:bookmark_id])
   b.destroy 
-  redirect '/'
+  redirect '/profile'
 end

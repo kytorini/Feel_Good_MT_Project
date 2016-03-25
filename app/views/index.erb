@@ -1,29 +1,9 @@
 
-
+<section id="intro" class="main style1 dark fullscreen">
 <div class="content container 75%">
   <header>
-    <h2>Time to get awesome advice.</h2>
+    <h2>Time to get an awesome advice.</h2>
   </header>
   <p>The best advice is this: Don’t take advice and don’t give advice.</p> 
-
-  <br>
-  <br>
-
-  <% if current_user %>
-  <p>
-    <ol>
-      <p> You've posted <%= current_user.advices.count %> times. <br> You've bookmarked <%= current_user.bookmarks.count %> times.
-      </p>
-      <p><strong> Your bookmarked advice: </strong></p>
-        <% current_user.bookmarks.map do |bookmark| bookmark %>
-        <li>
-       <%= "#{bookmark.advice.content}" %><form action="/delete" method="POST">
-       <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
-       <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Delete!</button>
-     </form></li>
-     <% end %>
-     <a href="/posts">View All Your Posted Advice</a>
-   </ol>
- </p>
- <% end %>
-
+  
+</section>
