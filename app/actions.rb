@@ -15,7 +15,7 @@ get '/search' do
   erb :'/search'
 end
 
-get '/show' do
+get '/' do
   @advice = Advice.order("RANDOM()").first
   erb :'/show'
 end
@@ -33,7 +33,7 @@ post '/submit' do
   current_user.advices << @advice
     if @advice.save
       @message = "Submit successful"
-      redirect "/"
+      redirect "/posts"
     else 
       @message = "Could not submit"
       redirect "/submit?message=#{@message}"
@@ -66,7 +66,7 @@ post '/login' do
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
       @message = "Login successful"
-      redirect "/?message=#{@message}"
+      redirect "/posts?message=#{@message}"
     else
       @message = "Invalid password"
       redirect "/login?message=#{@message}"
