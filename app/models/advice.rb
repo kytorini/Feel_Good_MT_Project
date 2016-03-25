@@ -4,7 +4,7 @@ class Advice < ActiveRecord::Base
   has_many :bookmarks
   has_many :users, through: :bookmarks
 
-  validates :content, presence: true, length: { minimum: 5, maximum: 200 }
+  validates :content, uniqueness: true, length: { minimum: 5, maximum: 200 }
   after_save :health_must_be_over_minus_five
 
   def bookmarkers

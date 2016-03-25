@@ -35,15 +35,19 @@ post '/submit' do
       session[:message] = "Submit successful"
       redirect "/profile"
     else 
-      session[:message] = "Could not submit"
+      session[:message] = "Oops! We could not submit your advice posting because: #{@advice.errors.full_messages[0]}"
       redirect "/submit"
-  end
+    end
 end
 
 get '/profile' do
   @advices = current_user.advices.order('created_at DESC')
   @bookmarks = current_user.bookmarks.order('created_at DESC')
   erb :'/profile'
+end
+
+get '/popular' do
+  erb :'/popular'
 end
 
 post '/bookmark' do
