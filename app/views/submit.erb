@@ -1,21 +1,18 @@
 <section id="intro" class="main style2 dark fullscreen">
 
-<% if current_user %>
-<% if @message %>
-  <%= @message %>
-<% end %>
+  <% if current_user %>
 
-<form method="post" action="/submit">
-  <div class="input-group input-group-lg">
-    <span class="input-group-addon" id="sizing-addon2"></span>
-    <input type="text" class="form-control" placeholder="Your Advice" aria-describedby="sizing-addon2" name="content">
-  </div>
-  <div class="input-group input-group-lg">
- <input type="submit" class="form-control" placeholder="Submit" aria-describedby="sizing-addon3" value="Submit" >
+  <form method="post" action="/submit">
+
+      <input type="text" class="form-control" placeholder="Your Advice"  name="content">
+
+     <input type="submit" class="form-control" placeholder="Submit"  value="Submit">
+
+           <!-- <button class="btn btn-default" type="submit">Bookmark!</button> -->
+   </form>
+ </div>
 </form>
-</div>
-</form>
- <% else %>
-  <% redirect "/" %>
- <% end %>
+<% else %>
+<% redirect '/' %>
 </section>
+<% end %>

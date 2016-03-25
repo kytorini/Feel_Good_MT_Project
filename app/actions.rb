@@ -41,7 +41,9 @@ post '/submit' do
 end
 
 get '/profile' do
-  erb :'/profile'
+ @advices = current_user.advices.order('created_at DESC')
+ @bookmarks = current_user.bookmarks.order('created_at DESC')
+ erb :'/profile'
 end
 
 post '/bookmark' do
@@ -80,6 +82,23 @@ end
 get '/logout' do
   session[:user_id] = nil
   redirect '/'
+end
+
+get '/signup' do
+  erb :'/signup'
+end
+
+post '/signup' do
+  @user = User.new(
+    username: params[:username],
+    password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
+      @message = "Account created"
+      redirect "/profile"
+    else
+      erb :'/signup'
+    end
 end
 
 post '/delete' do
