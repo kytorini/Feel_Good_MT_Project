@@ -8,6 +8,10 @@
     <input type="hidden" name="advice_id" value="<%= @advice.id %>">
       <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>Bookmark!</button>
   </form>
+  <form action="/flag" method="POST">
+  <input type="hidden" name="advice_id" value="<%= @advice.id %>">
+      <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>Flag!</button>
+  </form>
   <% else %>
 <% redirect '/' %>
 </section>

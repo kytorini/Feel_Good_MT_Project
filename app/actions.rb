@@ -16,7 +16,7 @@ get '/search' do
 end
 
 get '/show' do
-  @advice = Advice.order("RANDOM()").first
+  @advice = Advice.order("RANDOM()").last
   erb :'/show'
 end
 
@@ -41,6 +41,8 @@ post '/submit' do
 end
 
 get '/profile' do
+  @advices = current_user.advices.order('created_at DESC')
+  @bookmarks = current_user.bookmarks.order('created_at DESC')
   erb :'/profile'
 end
 
@@ -51,6 +53,17 @@ post '/bookmark' do
       redirect "/profile"
     else 
       session[:message] = "Can only bookmark once"
+      redirect "/show"
+  end
+end
+
+post '/flag' do
+  @flag = Flag.new(user_id: current_user.id, advice_id: params[:advice_id])
+  if @flag.save
+      session[:message] = "Flag successful"
+      redirect "/profile"
+    else 
+      session[:message] = "Can only flag once"
       redirect "/show"
   end
 end

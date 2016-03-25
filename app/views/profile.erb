@@ -6,7 +6,7 @@
    <p> <em>Your Posted advice:</em> </p>
    <p># of bookmarks your posts have had: <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %>
     <ol>
-      <% current_user.advices.map do |advice| %>
+      <% @advices.map do |advice| %>
       <li><%= advice.content %> Count: <%= Advice.joins(:bookmarks).where(id: advice.id).count  %></li>
       <% end %>
     </ol>
@@ -16,7 +16,7 @@
   <p><em> Your Bookmarked advice: </em></p>
   <p>
     <ol>
-      <% current_user.bookmarks.map do |bookmark| %>
+      <% @bookmarks.map do |bookmark| %>
       <li>
        <%= "#{bookmark.advice.content}" %><form action="/delete" method="POST">
        <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
