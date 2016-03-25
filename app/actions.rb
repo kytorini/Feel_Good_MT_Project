@@ -82,6 +82,23 @@ get '/logout' do
   redirect '/'
 end
 
+get '/signup' do
+  erb :'/signup'
+end
+
+post '/signup' do
+  @user = User.new(
+    username: params[:username],
+    password: params[:password])
+    if @user.save
+      session[:user_id] = @user.id
+      @message = "Account created"
+      redirect "/profile"
+    else
+      erb :'/signup'
+    end
+end
+
 post '/delete' do
   b = Bookmark.find(params[:bookmark_id])
   b.destroy 
