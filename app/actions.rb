@@ -48,7 +48,7 @@ post '/bookmark' do
   @bookmark = Bookmark.new(user_id: current_user.id, advice_id: params[:advice_id])
   if @bookmark.save
       @message = "Bookmark successful"
-      redirect "/show?message=#{@message}"
+      redirect "/?message=#{@message}"
     else 
       @message = "Can only bookmark once"
       redirect "/show?message=#{@message}"
@@ -85,5 +85,5 @@ end
 post '/delete' do
   b = Bookmark.find(params[:bookmark_id])
   b.destroy 
-  redirect '/bookmarks'
+  redirect '/'
 end

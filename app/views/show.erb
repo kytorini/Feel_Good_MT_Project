@@ -1,6 +1,14 @@
+<a href="/">View All Saved Advice</a>
+<br>
+
+
+    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>
+      <a href="/show">Get More Advice</a>
+    </button>
+<br>
 <p> Your AMAZING advice: <%= @advice.content %></p>
   <form action="/bookmark" method="POST">
     <input type="hidden" name="advice_id" value="<%= @advice.id %>">
-      <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Bookmark!</button>
-      <a href="/">View All Saved Advice</a>
+    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>Bookmark!</button>
   </form>
+
