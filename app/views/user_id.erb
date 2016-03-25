@@ -4,7 +4,7 @@
 
 <ol>
 <% current_user.advices.map do |advice| %>
- <li><%= "#{advice.content}" %></li>
+ <li><%= "#{advice.content}" %> Count: <%= Advice.joins(:bookmarks).where(id: advice.id).count%></li>
 <% end %>
 
 </ol>

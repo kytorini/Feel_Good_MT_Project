@@ -11,11 +11,12 @@
 
   <% if current_user %>
   <p> Your bookmarked advice: </p>
+  <p>Your advice has been bookmarked a total of <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %> times!</p>
   <p>
     <ol>
       <% current_user.bookmarks.map do |bookmark| %>
       <li>
-       <%= "#{bookmark.advice.content}" %><form action="/delete" method="POST">
+       <%= "#{bookmark.advice.content}" "#{Advice.joins(:bookmarks).where( id: 4).count} bookmarks!" %><form action="/delete" method="POST">
        <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Delete!</button>
      </form></li>
