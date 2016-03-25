@@ -11,5 +11,5 @@ class Bookmark < ActiveRecord::Base
       errors.add(:user_id, "can only bookmark once.")
     end 
   end
-
+  
 end

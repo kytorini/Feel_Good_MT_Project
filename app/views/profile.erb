@@ -1,14 +1,10 @@
 <section id="intro" class="main style3 dark fullscreen">
 
-
   <% if current_user %>
-   <ol>
-     <p> You've posted <%= current_user.advices.count %> times. <br> You've bookmarked <%= current_user.bookmarks.count %> times.
-     </p>
-   
-
-  <p> <em>Your Posted advice:</em> </p>
-  <p># of bookmarks your posts have had: <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %>
+  <ol>
+   <p><strong>You've posted <%= current_user.advices.count %> times.</strong></p>
+   <p> <em>Your Posted advice:</em> </p>
+   <p># of bookmarks your posts have had: <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %>
     <ol>
       <% current_user.advices.map do |advice| %>
       <li><%= advice.content %> Count: <%= Advice.joins(:bookmarks).where(id: advice.id).count  %></li>
@@ -16,8 +12,8 @@
     </ol>
   </p>
 
-
-  <p> Your Bookmarked advice: </p>
+  <p><strong>You've bookmarked <%= current_user.bookmarks.count %> times.</strong></p>
+  <p><em> Your Bookmarked advice: </em></p>
   <p>
     <ol>
       <% current_user.bookmarks.map do |bookmark| %>
@@ -27,11 +23,9 @@
        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Delete!</button>
      </form></li>
      <% end %>
-     <!--  <a href="/profile">View All Your Posted Advice</a> -->
    </ol>
  </p>
  <% else %>
-  <% redirect "/" %>
+ <% redirect '/' %>
  <% end %>
-
 </section>
