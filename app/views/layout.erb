@@ -14,7 +14,7 @@
 
         <!-- Logo -->
           <h1 id="logo"><img src="/images/8icon.png" alt="magic8_icon" height="60" width="60"></h1>
-          <h1 ><a href="/" id="logo_title">MAGIC 8 ME</a></h1>
+          <h1 ><a href="/profile" id="logo_title">MAGIC 8 ME</a></h1>
 
         <!-- Nav -->
           <nav id="nav">
@@ -34,6 +34,10 @@
 
       </header>
 
+      <% if session[:message] %>
+        <%= session[:message] %>
+        <% session[:message] = nil %>
+      <% end %>
     <!-- Main -->
       <%= yield %>
   

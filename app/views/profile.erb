@@ -1,7 +1,7 @@
 <section id="intro" class="main style3 dark fullscreen">
 
 
-
+  <% if current_user %>
    <ol>
      <p> You've posted <%= current_user.advices.count %> times. <br> You've bookmarked <%= current_user.bookmarks.count %> times.
      </p>
@@ -30,4 +30,8 @@
      <!--  <a href="/profile">View All Your Posted Advice</a> -->
    </ol>
  </p>
+ <% else %>
+  <% redirect "/" %>
+ <% end %>
+
 </section>

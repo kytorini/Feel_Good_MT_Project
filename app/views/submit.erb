@@ -1,4 +1,6 @@
 <section id="intro" class="main style2 dark fullscreen">
+
+<% if current_user %>
 <% if @message %>
   <%= @message %>
 <% end %>
@@ -13,4 +15,7 @@
 </form>
 </div>
 </form>
+ <% else %>
+  <% redirect "/" %>
+ <% end %>
 </section>
