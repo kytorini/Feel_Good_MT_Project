@@ -13,34 +13,32 @@
   </head>
   <body>
 
-      <header id="header">
+  <header id="header">
+    <h1 id="logo"><img src="/images/8icon.png" alt="magic8_icon" height="60" width="60"></h1>
+    <h1 ><a href="/profile" id="logo_title">MAGIC <font color="#FF8C00">8</font> ME</a></h1>
 
-          <h1 id="logo"><img src="/images/8icon.png" alt="magic8_icon" height="60" width="60"></h1>
-          <h1 ><a href="/profile" id="logo_title">MAGIC <font color="#FF8C00">8 </font>ME</a></h1>
+    <nav id="nav">
+      <ul>
+        <% if current_user %>
+        <li>Welcome Back, <%= current_user.username %></li>
+        <li><a href="/popular">What's Popular?</a></li>
+        <li><a href="/submit">Post Advice</a></li>
+        <li><a href="/show">Get Advice</a></li>
+        <li><a href="/logout">LOG OUT</a></li>
+        <% else %>
+        <li><a href="/login">Log in</a></li>
+        <li><a href="/signup">Sign up</a></li>
+        <% end %>
 
-          <nav id="nav">
-            <ul>
-              <% if current_user %>
-                <li>Welcome Back, <%= current_user.username %></li>
-                <li><a href="/submit">Post Advice</a></li>
-                <li><a href="/show">Get Advice</a></li>
-                <li><a href="/logout">LOG OUT</a></li>
-              <% else %>
-                <li><a href="/login">Log in</a></li>
-                <li><a href="/signup">Sign up</a></li>
-              <% end %>
-              
-            </ul>
-          </nav>
-      </header>
-      <% if session[:message] %>
-        <p class="sys_to_user_message">
-        <%= session[:message] %>
-        <% session[:message] = nil %>
-        </p>
-      <% end %>
-      
-    <!-- Main -->
-      <%= yield %>
-    </body>
+      </ul>
+    </nav>
+  </header>
+  <% if session[:message] %>
+  <p class="sys_to_user_message">
+   <%= session[:message] %>
+   <% session[:message] = nil %>
+ </p>
+ <% end %>
+ <%= yield %>
+</body>
 </html>

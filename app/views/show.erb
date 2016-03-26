@@ -9,8 +9,11 @@
     <br>
     <button class="btn btn-default" type="submit">Bookmark!</button>
   </form>
+  <form action="/flag" method="POST">
+  <input type="hidden" name="advice_id" value="<%= @advice.id %>">
+      <button class="btn btn-default" type="submit"></span>Flag!</button>
+  </form>
   <% else %>
 <% redirect '/' %>
 </section>
 <% end %>
-<!-- <span class="glyphicon glyphicon-music"></span> -->

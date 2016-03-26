@@ -1,5 +1,6 @@
 <section id="intro" class="main style3 dark fullscreen">
 
+
   <% if current_user %>
     <div class="profile">
       <div class="text-center">
@@ -13,12 +14,15 @@
 <br>
       <div class="icon-container">
         <div class="col-lg-4" id="stats">
-          <p><strong>You have bookmarked <b class="empa"><%= current_user.bookmarks.count %> </b>advices.</strong><p>
-          <p><strong>You've given <b class="empa"><%= current_user.advices.count %></b> advices.</strong></p>  <!-- Fix this!!! user case, 0 times, 1 time, 2 times  -->
+          <p><strong>You've bookmarked <b class="empa"><%= current_user.bookmarks.count %> </b>quotes.</strong><p>
+          <p><strong>You've contributed <b class="empa"><%= current_user.advices.count %></b> quotes.</strong></p>  <!-- Fix this!!! user case, 0 times, 1 time, 2 times  -->
         </div>
-        <div class="col-lg-4"> MAIN RANK GOINGS HERE</div>
-        <div class="col-lg-4"><p><strong>Your advices have been bookmarked <b class="empa"> <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %></b> times.</strong></div>
-        <!-- <div class="col-lg-3">this is a stat</div> -->
+        <div class="col-lg-4"> 
+          <p><strong>Your MAGIC 8 points: <%= current_user.points %></strong>
+          <p><strong>Your MAGIC 8 rank: <%= current_user.rank %></strong>
+        </div>
+        <div class="col-lg-4"><p><strong>Your quotes have been bookmarked <b class="empa"> <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %></b> times.</strong></div>
+
       </div>
 
 <br>
@@ -27,12 +31,9 @@
 <br>
 <br>
 
-
-
-
     <div class="col-lg-6" id="own_post">
       <ol>
-       <h3> <strong>Your Posted advice</strong> </h3>
+       <h3> <strong>Quotes You've Posted:</strong> </h3>
        <br>
         <ol>
           <% @advices.map do |advice| %>
@@ -42,10 +43,8 @@
       </ol>
     </p>
     </div>
-
-
   <div class="col-lg-6" id="bookmarked">
-  <h3><strong>Your Bookmarked advice </strong></h3>
+  <h3><strong>Quotes You've Bookmarked:</strong></h3>
   <br>
   <p>
     <ol>
