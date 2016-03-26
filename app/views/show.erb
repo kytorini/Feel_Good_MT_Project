@@ -2,11 +2,12 @@
 
 <% if current_user %>
 
-<p> Your AMAZING advice: </p>
+<p class="get_comment"> <strong><h3>Your AMAZING advice is... </h3></strong></p>
 <p><%= @advice.content %></p>
   <form action="/bookmark" method="POST">
     <input type="hidden" name="advice_id" value="<%= @advice.id %>">
-      <button class="btn btn-default" type="submit">Bookmark!</button>
+    <br>
+    <button class="btn btn-default" type="submit">Bookmark!</button>
   </form>
   <% else %>
 <% redirect '/' %>

@@ -1,10 +1,10 @@
 <section id="intro" class="main style3 dark fullscreen">
 
-<div class="profile">
   <% if current_user %>
+    <div class="profile">
       <div class="text-center">
-        <p> Advice Of The Day</p>
-        <p> this is a piece of advice blah </p>
+        <p style="font-size:60px;"><strong> This is your profile,<%= current_user.username %> </strong></p>
+        <!-- <p> this is a piece of advice blah </p> -->
       </div>
 
 
@@ -12,10 +12,13 @@
 <br>
 <br>
       <div class="icon-container">
-        <div class="col-lg-3" id="stats"><strong>Your advices had been bookmarked <b class="empa"><%= current_user.bookmarks.count %> </b>times.</strong></div>
-        <div class="col-lg-3"> <p><strong>You've given <b class="empa"><%= current_user.advices.count %></b> advices.</strong></p>  <!-- Fix this!!! user case, 0 times, 1 time, 2 times  --></div>
-        <div class="col-lg-3"><p><strong>Your advices had been bookmarked <b class="empa"> <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %></b> times.</strong></div>
-        <div class="col-lg-3">this is a stat</div>
+        <div class="col-lg-4" id="stats">
+          <p><strong>You have bookmarked <b class="empa"><%= current_user.bookmarks.count %> </b>advices.</strong><p>
+          <p><strong>You've given <b class="empa"><%= current_user.advices.count %></b> advices.</strong></p>  <!-- Fix this!!! user case, 0 times, 1 time, 2 times  -->
+        </div>
+        <div class="col-lg-4"> MAIN RANK GOINGS HERE</div>
+        <div class="col-lg-4"><p><strong>Your advices have been bookmarked <b class="empa"> <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %></b> times.</strong></div>
+        <!-- <div class="col-lg-3">this is a stat</div> -->
       </div>
 
 <br>
@@ -51,7 +54,8 @@
       <span><%= "#{bookmark.advice.content}" %></span>
       <form action="/delete" method="POST">
        <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
-       <input class="" type="submit" value="delete"  style="float: right;" >
+       <input class="round_button" type="submit" value="X"  >
+
      </form></li>
      <% end %>
    </ol>

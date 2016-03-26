@@ -41,8 +41,10 @@ post '/submit' do
 end
 
 get '/profile' do
- @advices = current_user.advices.order('created_at DESC')
- @bookmarks = current_user.bookmarks.order('created_at DESC')
+  if current_user
+   @advices = current_user.advices.order('created_at DESC')
+   @bookmarks = current_user.bookmarks.order('created_at DESC')
+  end
  erb :'/profile'
 end
 
