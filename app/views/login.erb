@@ -1,15 +1,36 @@
 
 <section id="intro" class="main style2 dark fullscreen">
-<% if session[:user_id] %>
-   <%= current_user.username %>
- <% else %>
+  <% if session[:user_id] %>
+    <%= current_user.username %>
+  <% else %>
   <% if @message %> 
-    <p><%= @message %></p>
+    <p class="sys_to_user_message"><%= @message %></p>
   <% end %>
-<form method="POST" action="/login">
-  <input type="text" name="username" placeholder="Your Username">
-  <input type="password" name="password" placeholder="Your Password">
-  <button type="submit">Log In!</button>
-</form>
-<% end %>
+  <form class="user_forms" method="POST" action="/login">
+    <input type="text" name="username" class="individual-form-control" placeholder="Your Username">
+    <input type="password" name="password" class="individual-form-control" placeholder="Your Password">
+    <button type="submit" class="btn btn-default">Log In!</button>
+  </form>
+  <% end %>
 </section>
+
+
+<!-- <<<<<<< HEAD
+<form class="form-horizontal" method="POST" action="/login">
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input type="text" name="username" class="form-control" placeholder="Your Username">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input type="text" name="password" class="form-control" placeholder="Your Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Login</button>
+    </div>
+  </div>
+======= -->
+

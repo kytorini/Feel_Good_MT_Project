@@ -1,37 +1,53 @@
 <section id="intro" class="main style3 dark fullscreen">
 
+<div class="profile">
   <% if current_user %>
-  <ol>
-   <p><strong>You've posted <%= current_user.advices.count %> times.</strong></p>
-   <p> <em>Your Posted advice:</em> </p>
-   <p>The most popular advice is: 
-                                <li><%= popular_query(0) %></li>
-                                <li><%= popular_query(1) %></li>
-                                <li><%= popular_query(2) %></li>
-                                <li><%= popular_query(3) %></li>
-                                <li><%= popular_query(4) %></li></p>
-   <p># of bookmarks your posts have had: <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %>
-    <ol>
-      <% current_user.advices.map do |advice| %>
-      <li><%= advice.content %> Count: <%= Advice.joins(:bookmarks).where(id: advice.id).count  %></li>
-      <% end %>
-    </ol>
-  </p>
+      <div class="icon-container">
+        <div class="col-lg-3" id="stats"><strong>Your quotes have been bookmarked <b class="empa"><%= current_user.bookmarks.count %> </b>times.</strong></div>
+        <div class="col-lg-3"> <p><strong>You've contributed <b class="empa"><%= current_user.advices.count %></b> quotes to Magic 8.</strong></p>  <!-- Fix this!!! user case, 0 times, 1 time, 2 times  --></div>
+        <div class="col-lg-3"><p><strong>Your quotes have been bookmarked <b class="empa"> <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %></b> times.</strong></div>
+      </div>
+      <div class="col-lg-3"><p><strong>Your MAGIC 8 points: </strong></div>
+      </div>
 
-  <p><strong>You've bookmarked <%= current_user.bookmarks.count %> times.</strong></p>
-  <p><em> Your Bookmarked advice: </em></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <div class="col-lg-6" id="own_post">
+      <ol>
+       <h3> <strong>Quotes You've Posted:</strong> </h3>
+       <br>
+        <ol>
+          <% @advices.map do |advice| %>
+          <li class="advices"><%= advice.content %> Bookmarked: <%= Advice.joins(:bookmarks).where(id: advice.id).count %> times.</li>
+          <% end %>
+        </ol>
+      </ol>
+    </p>
+    </div>
+  <div class="col-lg-6" id="bookmarked">
+  <h3><strong>Quotes You've Bookmarked:</strong></h3>
+  <br>
   <p>
     <ol>
-      <% current_user.bookmarks.map do |bookmark| %>
-      <li>
-       <%= "#{bookmark.advice.content}" %><form action="/delete" method="POST">
+      <% @bookmarks.map do |bookmark| %>
+      <li class="advices">
+      <span><%= "#{bookmark.advice.content}" %></span>
+      <form action="/delete" method="POST">
        <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
-       <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-music"></span>        Delete!</button>
+       <input class="" type="submit" value="delete"  style="float: right;" >
      </form></li>
      <% end %>
    </ol>
  </p>
- <% else %>
- <% redirect '/' %>
- <% end %>
+ </div>
+ 
+</div>
+
+<% else %>
+<% redirect '/' %>
+<% end %>
 </section>
