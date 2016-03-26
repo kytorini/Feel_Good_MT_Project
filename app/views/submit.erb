@@ -1,12 +1,14 @@
 <section id="intro" class="main style2 dark fullscreen">
+  <% if current_user %>
 
-<% if current_user %>
+  <form method="post" action="/submit">
 
-<form method="post" action="/submit">
-    <input type="text" class="form-control" placeholder="Your Advice" aria-describedby="sizing-addon2" name="content">
- <input type="submit" class="form-control" placeholder="Submit" value="Submit" >
+      <input type="text" class="form-control" placeholder="Your Advice"  name="content">
+
+     <input type="submit" class="form-control" placeholder="Submit"  value="Submit">
+   </form>
 </form>
 <% else %>
-  <% redirect '/' %>
+<% redirect '/' %>
 </section>
 <% end %>
