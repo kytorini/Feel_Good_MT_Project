@@ -17,6 +17,4 @@ class Flag < ActiveRecord::Base
     self.advice.save
   end
 
-
-
 end
