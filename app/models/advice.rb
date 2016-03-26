@@ -23,7 +23,7 @@ class Advice < ActiveRecord::Base
     end
   end
 
-  def update_users_points
+  def update_users_points  
     self.user.points += 1
     self.user.save
   end
