@@ -2,8 +2,8 @@
 <div class="profile">
   <% if current_user %>
       <div class="icon-container">
-        <div class="col-lg-3" id="stats"><strong>Your quotes have been bookmarked <b class="empa"><%= current_user.bookmarks.count %> </b>times.</strong></div>
         <div class="col-lg-3"> <p><strong>You've contributed <b class="empa"><%= current_user.advices.count %></b> quotes to Magic 8.</strong></p></div>
+        <div class="col-lg-3" id="stats"><strong>You've bookmarked <b class="empa"><%= current_user.bookmarks.count %> </b>quotes.</strong></div>
         <div class="col-lg-3"><p><strong>Your quotes have been bookmarked <b class="empa"> <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %></b> times.</strong></div>
       </div>
       <div class="col-lg-3"><p><strong>Your MAGIC 8 points: <%= current_user.points %></strong></div>
