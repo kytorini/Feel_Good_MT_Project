@@ -5,6 +5,11 @@ helpers do
     end
   end
 
+  def popular_query(integer)
+    query1 = Bookmark.select('distinct advice_id, count(advice_id) as count').group(:advice_id).reorder('count DESC')
+    result = query1[integer].advice_id
+    Advice.find(result).content
+  end
 end
 
 get '/' do

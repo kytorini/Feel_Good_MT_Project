@@ -4,6 +4,12 @@
   <ol>
    <p><strong>You've posted <%= current_user.advices.count %> times.</strong></p>
    <p> <em>Your Posted advice:</em> </p>
+   <p>The most popular advice is: 
+                                <li><%= popular_query(0) %></li>
+                                <li><%= popular_query(1) %></li>
+                                <li><%= popular_query(2) %></li>
+                                <li><%= popular_query(3) %></li>
+                                <li><%= popular_query(4) %></li></p>
    <p># of bookmarks your posts have had: <%= Advice.joins(:bookmarks).where(user_id: current_user.id).count %>
     <ol>
       <% current_user.advices.map do |advice| %>
