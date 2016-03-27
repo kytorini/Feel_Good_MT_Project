@@ -1,3 +1,32 @@
+
+
+<section id="intro" class="main style3 dark fullscreen">
+
+
+
+
+
+<h1>Ranking!</h1>
+<table class="rank-table">
+  <tr>
+    <td>Contributor</td>
+    <td>Points</td>
+    <td>Current Rank</td>
+  </tr>
+    <% @users.map do |user| %>
+      <tr>
+        <td> <%= user.username.capitalize %></td>
+        <td> <%= user.points %></td>
+        <td><%= user.rank %></td>
+    <% end %>
+  </tr>
+</table>
+
+
+
+<br>
+<br>
+
 <p>Most popular MAGIC 8 quotes: 
   <ol>
     <li>1. <%= popular_query(0) %></li>
@@ -7,7 +36,6 @@
     <li>5. <%= popular_query(4) %></li>
   </ol>
 </p>
-
  
 <p>
   Quote of the week: <%= weekly_quote %>
@@ -15,3 +43,5 @@
 <p>
   Quote of the day: <%= daily_quote %>
 </p>
+
+</section>
