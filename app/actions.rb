@@ -10,6 +10,31 @@ helpers do
     result = query1[integer].advice_id
     Advice.find(result).content
   end
+
+  def weekly_quote
+    weekly_quote_range = 1.days.ago.midnight...Date.tomorrow.midnight
+    weekly_query = Bookmark.joins(:advice).select('distinct advice_id, count(advice_id) as count').where('advices.created_at' => weekly_quote_range).group(:advice_id).reorder('count DESC').take(1)
+    if weekly_query.empty?
+      @advice = "No advice is the best advice."
+    else
+      weekly_query_result = weekly_query[0].advice_id
+      @advice = Advice.find(weekly_query_result).content
+    end
+    @advice
+  end
+
+  def daily_quote
+    daily_quote_range = Date.today.midnight...Date.tomorrow.midnight
+    daily_query = Bookmark.joins(:advice).select('distinct advice_id, count(advice_id) as count').where('advices.created_at' => daily_quote_range).group(:advice_id).reorder('count DESC').take(1)
+    if daily_query.empty?
+      @advice = "No advice is the best advice."
+    else
+      daily_query_result = daily_query[0].advice_id
+      @advice = Advice.find(daily_query_result).content
+    end
+    @advice
+  end
+
 end
 
 get '/' do
