@@ -1,18 +1,41 @@
-<section id="intro" class="main style3 dark fullscreen">
+<section id="intro" class="main style2 dark fullscreen">
 
 <% if current_user %>
 
-<p class="get_comment"> <strong><h3>Your AMAZING advice is... </h3></strong></p>
-<p><%= @advice.content %></p>
-  <form action="/bookmark" method="POST">
+<p class="get_comment"> <strong><h3>Your AMAZING quote is... </h3></strong></p>
+
+<br>
+
+<h3><b class="empa">[</b> <%= @advice.content %> <b class="empa">]</b></h3>
+
+<br>
+<br>
+
+
+  <form id="button_left" action="/bookmark" method="POST">
     <input type="hidden" name="advice_id" value="<%= @advice.id %>">
     <br>
     <button class="btn btn-default" type="submit">Bookmark!</button>
   </form>
-  <form action="/flag" method="POST">
+
+<!--   <form class="hvr-buzz" id="button_center" action="/bookmark" method="POST">
+    <input type="hidden" name="advice_id" value="<%= @advice.id %>">
+    <br>
+    <button class="btn-reload" type="submit"> <img src="/images/8icon.png" alt="Get New Quote" height="150" width="150"></button>
+  </form> -->
+
+  <div id="button_center">
+  <a href="/show">
+    <img class="hvr-buzz" border="0" src="/images/8icon.png" alt="Get New Quote" width="150" height="150">
+  </a>
+  </div>
+
+  <form id="button_right" action="/flag" method="POST">
   <input type="hidden" name="advice_id" value="<%= @advice.id %>">
-      <button class="btn btn-default" type="submit"></span>Flag!</button>
+      <button class="btn btn-default" type="submit"></span>Flag Inappropreate!</button>
   </form>
+
+
   <% else %>
 <% redirect '/' %>
 </section>

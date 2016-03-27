@@ -49,11 +49,15 @@ get '/profile' do
     if current_user
      @advices = current_user.advices.order('created_at DESC')
      @bookmarks = current_user.bookmarks.order('created_at DESC')
+     @total_been_bookmarked = Advice.joins(:bookmarks).where(user_id: current_user.id).count
     end
   erb :'/profile'
 end
 
 get '/popular' do
+  if current_user
+    @users = User.order("points DESC")
+  end
   erb :'/popular'
 end
 
@@ -123,8 +127,29 @@ post '/signup' do
     end
 end
 
-post '/delete' do
+post '/delete_bookmark' do
   b = Bookmark.find(params[:bookmark_id])
   b.destroy 
   redirect '/profile'
 end
+
+
+post '/delete_advice' do
+  a = Advice.find(params[:advice_id])
+  a.destroy
+  redirect '/profile'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
