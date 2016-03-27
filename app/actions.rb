@@ -76,7 +76,7 @@ post '/flag' do
   @flag = Flag.new(user_id: current_user.id, advice_id: params[:advice_id])
   if @flag.save
       session[:message] = "Flag successful"
-      redirect "/profile"
+      redirect "/show"
     else 
       session[:message] = "Can only flag once"
       redirect "/show"

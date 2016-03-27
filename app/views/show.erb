@@ -2,6 +2,15 @@
 
 <% if current_user %>
 
+<section class="system_message">
+  <% if session[:message] %>
+   <strong><%= session[:message] %>!</strong>
+   <% session[:message] = nil %>
+ </p>
+ <% end %>
+ </section>
+ <br>
+
 <p class="get_comment"> <strong><h3>Your AMAZING quote is... </h3></strong></p>
 
 <br>
@@ -32,7 +41,7 @@
 
   <form id="button_right" action="/flag" method="POST">
   <input type="hidden" name="advice_id" value="<%= @advice.id %>">
-      <button class="btn btn-default" type="submit"></span>Flag Inappropreate!</button>
+      <button class="btn btn-default" type="submit"></span>Flag Inappropriate!</button>
   </form>
 
 
