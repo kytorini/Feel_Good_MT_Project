@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :advices
-  has_many :bookmarks
+  has_many :advices, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   before_save :update_rank
 
   # def number_of_bookmarks

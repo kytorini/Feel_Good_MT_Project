@@ -328,9 +328,11 @@
 	.system_message {
 		color: #FF8C00;
 		font-size: 25px;
-		position: fixed;
-		top: 20%;
-		left: 43%;
+	/*		position: fixed;
+		left: 45%;*/
+		position: relative;
+		text-align: center;
+		top: 4em;
     -webkit-animation:system_message 0.5s 1;
     -webkit-animation-delay:2s;
     -webkit-animation-fill-mode: forwards;
@@ -341,6 +343,10 @@
 	@-webkit-keyframes system_message{
 	    from {opacity :1;}
 	    to {opacity :0;}
+	}
+
+	#profile{
+		top: 1em;
 	}
 
 /* Forms General */
@@ -494,6 +500,12 @@
 		top: -30px;
 	}
 
+	#remove_advice{
+		position: relative;
+		float: left;
+		top: -70px;
+	}
+
 /* Profile */
 	.profile{
 		/*padding-top: 1em;*/
@@ -644,7 +656,7 @@
 	#button_right{
 		position: relative;
 		left: 20px;
-		top: 94px;
+		top: 59px;
 		/*top: 94px;*/
 		/*top: 39px;*/
 		text-align: left;

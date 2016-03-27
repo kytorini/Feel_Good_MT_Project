@@ -1,7 +1,7 @@
 class Advice < ActiveRecord::Base
 
   belongs_to :user
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
   has_many :users, through: :bookmarks
 
   validates :content, uniqueness: true, length: { minimum: 5, maximum: 200 }

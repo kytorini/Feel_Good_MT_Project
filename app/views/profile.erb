@@ -2,11 +2,10 @@
 
 <section id="intro"> 
 
-<section class="system_message">
+<section class="system_message" id="profile">
   <% if session[:message] %>
    <strong><%= session[:message] %>!</strong>
    <% session[:message] = nil %>
- </p>
  <% end %>
  </section>
 
@@ -33,12 +32,6 @@
           <%= 'quote'.pluralize(current_user.bookmarks.count)%>.</strong><p>
         </div>
 
-
-<!--         <div class="col-lg-4"> 
-          <p><strong>Your MAGIC 8 points: <%= current_user.points %></strong>
-          <p><strong>Your MAGIC 8 rank: <%= current_user.rank %></strong>
-        </div>
- -->
         <div class="col-lg-4"> 
 
 
@@ -78,13 +71,14 @@
         <ol>
           <% @advices.map do |advice| %>
           <li class="advices"> 
-              <%= advice.content %>
+              " <%= advice.content %> "
               <br> 
-              Bookmarked: <%= Advice.joins(:bookmarks).where(id: advice.id).count %> <%= 'time'.pluralize(Advice.joins(:bookmarks).where(id: advice.id).count)%>.
-<!--               <form action="/delete_advice" method="POST">
-              <input type="hidden" name="advice_id" value="<%= advice.id %>">
-              <input class="round_button" id="remove_bookmark" type="submit" value="X"> -->
+              <img src="images/bookmark-icon.png"/ height="20px">: <%= Advice.joins(:bookmarks).where(id: advice.id).count %> <%= 'time'.pluralize(Advice.joins(:bookmarks).where(id: advice.id).count)%>.
 
+              <form action="/delete_advice" method="POST">
+                <input type="hidden" name="advice_id" value="<%= advice.id %>">
+                <input class="round_button" id="remove_advice" type="submit" value="X">
+              </form>
 
           </li>
           <% end %>
@@ -99,7 +93,7 @@
     <ol>
       <% @bookmarks.map do |bookmark| %>
       <li class="advices">
-        <span><%= "#{bookmark.advice.content}" %></span>
+        <span>" <%= "#{bookmark.advice.content}" %> "</span>
         <form action="/delete_bookmark" method="POST">
          <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
          <input class="round_button" id="remove_bookmark" type="submit" value="X">
