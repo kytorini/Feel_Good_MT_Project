@@ -65,7 +65,7 @@ post '/submit' do
       session[:message] = "Submit successful"
       redirect "/profile"
     else 
-      session[:message] = "Oops! We could not submit your advice posting because: #{@advice.errors.full_messages[0]}"
+      session[:message] = "Oops!#{@advice.errors.full_messages[0]}"
       redirect "/submit"
     end
 end
@@ -81,7 +81,7 @@ end
 
 get '/popular' do
   if current_user
-    @users = User.order("points DESC")
+    @users = User.order("points DESC").take(5)
   end
   erb :'/popular'
 end

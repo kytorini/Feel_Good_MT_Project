@@ -1,10 +1,30 @@
 
 
-<section id="intro" class="main style3 dark fullscreen">
+<section id="intro" class="main style2 dark fullscreen">
+<br>
+
+<div class="col-lg-6">
+<section class="popular">
+ <h2>Quote of the week: </h2>
+ <hr class="rank-ruler">
+ <h3>" <%= weekly_quote %> "</h3>
+</section>
+</div>
+
+<div class="col-lg-6">
+<section class="popular">
+ <h2>Quote of the day: </h2>
+ <hr class="rank-ruler">
+ <h3>" <%= daily_quote %> "</h3>
+</section>
+</div>
 
 
 
-<h1>Ranking!</h1>
+<div class="col-lg-6">
+<section class="popular">
+<h2>Ranking!</h2>
+<hr class="rank-ruler">
 <table class="rank-table">
   <tr>
     <td>Contributor</td>
@@ -19,29 +39,26 @@
     <% end %>
   </tr>
 </table>
-
-
+</section>
+</div>
 
 <br>
 <br>
 
-<p>Most popular MAGIC 8 quotes: 
+
+<div class="col-lg-6">
+<section class="popular">
+<h2>Best MAGIC 8 Quotes: </h2>
+<hr class="rank-ruler">
   <ol>
-    <li>1. <%= popular_query(0) %></li>
-    <li>2. <%= popular_query(1) %></li>
-    <li>3. <%= popular_query(2) %></li>
-    <li>4. <%= popular_query(3) %></li>
-    <li>5. <%= popular_query(4) %></li>
+    <li><h4>" <%= popular_query(0) %> "</h4></li>
+    <li><h4>" <%= popular_query(1) %> "</h4></li>
+    <li><h4>" <%= popular_query(2) %> "</h4></li>
+    <li><h4>" <%= popular_query(3) %> "</h4></li>
+    <li><h4>" <%= popular_query(4) %> "</h4></li>
   </ol>
-</p>
-
-
-<p>
- Quote of the week: <%= weekly_quote %>
-</p>
-<p>
- Quote of the day: <%= daily_quote %>
-</p>
+</section>
+</div>
 
 
 </section>

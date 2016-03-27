@@ -11,7 +11,7 @@
  </section>
  <br>
 
-<p class="get_comment"> <strong><h3>Your AMAZING quote is... </h3></strong></p>
+<p class="get_comment"> <strong><h3>Your <b class="empa">Magic 8 </b>quote is... </h3></strong></p>
 
 <br>
 
@@ -24,7 +24,7 @@
   <form id="button_left" action="/bookmark" method="POST">
     <input type="hidden" name="advice_id" value="<%= @advice.id %>">
     <br>
-    <button class="btn btn-default" type="submit">Bookmark!</button>
+    <button class="btn btn-default" type="submit"> <img class="bookmark_icon" src="images/bookmark-icon.png"/ height="20px">Bookmark!</button>
   </form>
 
 <!--   <form class="hvr-buzz" id="button_center" action="/bookmark" method="POST">
@@ -41,7 +41,7 @@
 
   <form id="button_right" action="/flag" method="POST">
   <input type="hidden" name="advice_id" value="<%= @advice.id %>">
-      <button class="btn btn-default" type="submit"></span>Flag Inappropriate!</button>
+      <button class="btn btn-default" type="submit"><img class="bookmark_icon" src="images/flag-icon.png"/ height="20px"></span>Flag Inappropriate!</button>
   </form>
 
 

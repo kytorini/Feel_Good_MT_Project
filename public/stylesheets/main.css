@@ -549,6 +549,13 @@
 	#stats{
 	}
 
+	.bookmark_icon{
+		position: relative;
+		top: 3px;
+		left: -5px;
+	}
+
+
 	.advices{
 		padding-bottom: 1.5em;  
 	}
@@ -600,8 +607,12 @@
 	  padding: 0;
 	  width: 275px;
 	  /*text off-set*/
+	  /*for one lines*/
 	  /*top: -460px;*/
-	  top: -480px;
+	  /*for two lines*/
+	  /*top: -480px;*/
+		/*for three lines*/
+	  top: -500px;
 	  font-size: 30px;
 	  font-weight: 800;
 	  text-align: center;
@@ -657,6 +668,7 @@
 		position: relative;
 		left: 20px;
 		top: 59px;
+		/*top: 50px;*/
 		/*top: 94px;*/
 		/*top: 39px;*/
 		text-align: left;
@@ -665,15 +677,48 @@
 		overflow:hidden;
 	} 
 
-/* Popular Table */
+/* Popular */
+
+	.popular{
+		padding-bottom: 5em;
+
+	}
+
+	.popular h2 {
+		text-align: center;
+		font-weight: bold;
+		font-size: 2.5em;
+		line-height: 1em;
+		letter-spacing: -2px;
+	}
+
+	.popular h3 {
+		font-size: 2em;
+		line-height: 1em;
+		/*letter-spacing: -4px;*/
+	}
+
+	.popular h4 {
+		font-size: 1.5em;
+		line-height: 1em;
+		line-height: 50px;
+	}
+
+
+	.rank-ruler{
+		width: 75%;
+
+	}
 
 	.rank-table{
+		position: relative;
 		text-align: center;
 	}
 
 	td {
 		width: 10em;
 	}
+
 
 
 
@@ -2654,7 +2699,7 @@
 		.main.style2 {
 			text-align: center;
 			padding: 3em 0 3em 0;
-			overflow: hidden;
+			/*overflow: hidden;*/
 		}
 
 			.main.style2 .content {

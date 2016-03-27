@@ -43,6 +43,7 @@
             <canvas id="activeProgress" class="progress-active"  height="275px" width="275px"></canvas>
             <p>Rank</p>
             <p><%= current_user.rank %></p>
+            <p><%= current_user.points %> <%= 'Point'.pluralize(current_user.bookmarks.count)%> </p>
           </div>
 
 
@@ -73,7 +74,7 @@
           <li class="advices"> 
               " <%= advice.content %> "
               <br> 
-              <img src="images/bookmark-icon.png"/ height="20px">: <%= Advice.joins(:bookmarks).where(id: advice.id).count %> <%= 'time'.pluralize(Advice.joins(:bookmarks).where(id: advice.id).count)%>.
+              <img class="bookmark_icon" src="images/bookmark-icon.png"/ height="20px">: <%= Advice.joins(:bookmarks).where(id: advice.id).count %> <%= 'time'.pluralize(Advice.joins(:bookmarks).where(id: advice.id).count)%>
 
               <form action="/delete_advice" method="POST">
                 <input type="hidden" name="advice_id" value="<%= advice.id %>">
