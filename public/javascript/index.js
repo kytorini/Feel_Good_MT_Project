@@ -33,7 +33,7 @@ $(document).ready(function(){
 
 				//progress bar
 				iProgressCTX.beginPath();
-				iProgressCTX.lineWidth = 2;
+				iProgressCTX.lineWidth = 8;
 				iProgressCTX.fillStyle = '#e6e6e6';
 				iProgressCTX.arc(137.5,137.5,111,0,2*Math.PI);
 				iProgressCTX.stroke();
@@ -64,7 +64,7 @@ $(document).ready(function(){
 				barCTX.lineCap = 'square';
 
 				barCTX.beginPath();
-				barCTX.lineWidth = 10;
+				barCTX.lineWidth = 15;
 				barCTX.strokeStyle = '#FF8C00';
 				barCTX.arc(137.5,137.5,111,startingAngle, endingAngle);
 				barCTX.stroke();
