@@ -34,7 +34,6 @@ helpers do
     end
     @advice
   end
-
 end
 
 get '/' do
