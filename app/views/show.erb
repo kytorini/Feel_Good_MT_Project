@@ -1,24 +1,28 @@
 <section id="intro" class="main style2 dark fullscreen">
 
-<% if current_user %>
+  <% if current_user %>
 
-<section class="system_message">
-  <% if session[:message] %>
-   <strong><%= session[:message] %>!</strong>
-   <% session[:message] = nil %>
- </p>
- <% end %>
- </section>
- <br>
-
-<p class="get_comment"> <strong><h3>Your <b class="empa">Magic 8 </b>quote is... </h3></strong></p>
-
+  <section class="system_message">
+    <% if session[:message] %>
+    <strong><%= session[:message] %>!</strong>
+    <% session[:message] = nil %>
+  </p>
+  <% end %>
+</section>
 <br>
 
-<h3><b class="empa">"</b> <%= @advice.content %> <b class="empa">"</b></h3>
+<section class="post_quote">
+  <p> <strong><h3>Your <b class="empa">Magic 8 </b>quote is... </h3></strong></p>
 
-<br>
-<br>
+  <br>
+
+  <h3><b class="empa">"</b> <%= @advice.content %><b class="empa">"</b></h3>
+
+  <p> <h4>by: <%= @advice.user.username.capitalize %></h4></p>
+
+  <br>
+  <br>
+
 
 
   <form id="button_left" action="/bookmark" method="POST">
@@ -34,18 +38,19 @@
   </form> -->
 
   <div id="button_center">
-  <a href="/show">
-    <img class="hvr-buzz" border="0" src="/images/8icon.png" alt="Get New Quote" width="150" height="150">
-  </a>
+    <a href="/show">
+      <img class="hvr-buzz" border="0" src="/images/8icon.png" alt="Get New Quote" width="150" height="150">
+    </a>
   </div>
 
   <form id="button_right" action="/flag" method="POST">
-  <input type="hidden" name="advice_id" value="<%= @advice.id %>">
-      <button class="btn btn-default" type="submit"><img class="bookmark_icon" src="images/flag-icon.png"/ height="20px"></span>Flag Inappropriate!</button>
+    <input type="hidden" name="advice_id" value="<%= @advice.id %>">
+    <button class="btn btn-default" type="submit"><img class="bookmark_icon" src="images/flag-icon.png"/ height="20px"></span>Flag Inappropriate!</button>
   </form>
 
 
   <% else %>
-<% redirect '/' %>
+  <% redirect '/' %>
+</section>
 </section>
 <% end %>

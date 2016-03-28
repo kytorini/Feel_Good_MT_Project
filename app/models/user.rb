@@ -1,17 +1,12 @@
 class User < ActiveRecord::Base
   has_many :advices, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+
+  validates :username, uniqueness: true
+
   before_save :update_rank
 
-  # def number_of_bookmarks
-  #     book = advices.map do 
-  #       |advice| advice.bookmarks
-  #     end
-  #   book.count 
-  # end 
-
   def update_rank
-  # ranks = ["Dalai Lama", "Socrates", "Deepak Chopra", "Jim Carrey", "Louis CK", "Donald Trump"]
     if points > 100
       self.rank = "Dalai Lama"
     elsif points > 80

@@ -618,14 +618,24 @@
 	  text-align: center;
 	}
 
-/* Post Advice */
+/* Post Advice (Submit.erb) */
 	.post_comment{
 		padding-top: 8em;
 	}
 
-/* Get Advice */
-	.get_comment{
+/* Get Advice  (Show.erb) */
+	.post_quote{
 		padding-top: 3em;
+	}
+
+	.post_quote h4{
+		position: relative;
+		left: 5em;
+		text-align: center;
+		font-weight: bold;
+		font-size: 2em;
+		line-height: 1em;
+		letter-spacing: -2px;
 	}
 
 	/*	#button_left{

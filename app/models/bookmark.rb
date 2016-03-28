@@ -21,10 +21,12 @@ class Bookmark < ActiveRecord::Base
 
   def increase_users_points
     @advice = Advice.find(self.advice_id)
-    @user_id = @advice.user_id
-    @user = User.find(@user_id)
-    @user.points += 1
-    @user.save
+    unless @advice.user_id.nil?
+      @user_id = @advice.user_id
+      @user = User.find(@user_id)
+      @user.points += 1
+      @user.save
+    end
   end
   
 end

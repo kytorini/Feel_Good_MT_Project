@@ -8,6 +8,7 @@ class Advice < ActiveRecord::Base
   
   after_save :health_must_be_over_minus_five
   after_create :update_users_points
+  after_destroy :decrease_users_points
 
   def bookmarkers
     self.users
@@ -23,8 +24,13 @@ class Advice < ActiveRecord::Base
     end
   end
 
-  def update_users_points
+  def update_users_points  
     self.user.points += 1
+    self.user.save
+  end
+
+  def decrease_users_points
+    self.user.points -= 1
     self.user.save
   end
 
