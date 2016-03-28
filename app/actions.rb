@@ -8,6 +8,10 @@ helpers do
     query1 = Bookmark.select('distinct advice_id, count(advice_id) as count').group(:advice_id).reorder('count DESC')
     Advice.find(query1[integer].advice_id).content
   end
+  def popular_query_user_name(integer)
+    query1 = Bookmark.select('distinct advice_id, count(advice_id) as count').group(:advice_id).reorder('count DESC')
+    User.find(Advice.find(query1[integer].advice_id).user_id).username.capitalize
+  end
   def weekly_quote
     weekly_quote_range = 7.days.ago.midnight...Date.tomorrow.midnight
     weekly_query = Bookmark.joins(:advice).select('distinct advice_id, count(advice_id) as count').where('advices.created_at' => weekly_quote_range).group(:advice_id).reorder('count DESC').take(1)

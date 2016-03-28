@@ -473,6 +473,21 @@
 	    background-color: transparent;
 	  }
 
+	.btn-remove{
+			height: 30px;
+			font-size: 20px;
+			padding: 0.1em 0.5em 0.1em 0.5em;
+			/*line-height: -100px;*/
+			position: relative;
+			top: -35px;
+			/*left: 5em;*/
+			float: right;
+	}
+
+	.delete_icon{
+		position: relative;
+		left: -5px;
+	}
 	.btn:hover {
     color: #333;
     background-color: #e6e6e6;
@@ -499,7 +514,7 @@
     color: #333;
     background-color: #e6e6e6;
     border-color: #adadad;
-}
+	}
 
 	.round_button :hover{
 		color:#fff;
@@ -527,8 +542,17 @@
 
 	.col-lg-4 {
     width: 33.33333333%;
-    height: 15em;
+    /*height: 15em;*/
+    height: 14em;
+    top: -3em;
 	}
+
+	#stats{
+		font-size: 25px;
+		position: relative;
+		top: -1.5em;
+	}
+
 		/*.col-lg-4 {
 		  width: 33.33333333%;
 		  float: left;
@@ -548,6 +572,16 @@
 	    padding-left: 15px;
 		}
 	*/
+	.col-lg-6 {
+		padding: 1.5em;
+		position: relative;
+		top: -5em;
+	}
+
+	.col-lg-12{
+		position: relative;
+		top: -5em;
+	}
 
 	#own_post{
 	    text-align:right;
@@ -558,9 +592,6 @@
 	    vertical-align:top
 	  }
 
-	#stats{
-	}
-
 	.bookmark_icon{
 		position: relative;
 		top: 3px;
@@ -570,6 +601,8 @@
 
 	.advices{
 		padding-bottom: 1.5em;  
+		/*font-size: 30px;*/
+		/*font-weight: 800;*/	
 	}
 
 
@@ -601,7 +634,7 @@
 
 	.progress-bar1 {
 		/*text color*/
-		color: #585858;
+		/*color: #585858;*/
 		background-color: transparent;
 	  display: inline-block;
 	  width: 275px;
@@ -611,6 +644,7 @@
 	}
 	.progress-bar1 .progress-active {
 	  position: relative;
+	  /*top: -287px;*/
 	  top: -287px;
 	}
 	.progress-bar1 p {
@@ -620,12 +654,13 @@
 	  width: 275px;
 	  /*text off-set*/
 	  /*for one lines*/
-	  /*top: -460px;*/
+	  top: -460px;
 	  /*for two lines*/
 	  /*top: -480px;*/
 		/*for three lines*/
 	  top: -500px;
-	  font-size: 30px;
+	  /*font-size: 30px;*/
+	  font-size: 25px;
 	  font-weight: 800;
 	  text-align: center;
 	}
@@ -684,6 +719,13 @@
 			overflow:hidden;
 		} 
 	*/
+	.post_quote h3{
+		font-size: 2em;
+		letter-spacing: -1px;
+		line-height: 1.25em;
+		padding-left: 3em;
+		padding-right: 3em;
+	}
 
 	#button_left{
 		position: relative;
@@ -718,7 +760,7 @@
 /* Popular */
 
 	.popular{
-		padding-bottom: 5em;
+		padding-top: 3em;
 
 	}
 
@@ -774,6 +816,8 @@
 	.best_quotes li{
 		padding-bottom: 1.7em;
 	}
+
+
 
 
 /* Containers */
@@ -2715,8 +2759,9 @@
 		}
 		/*# main content location*/
 		.main.style1 {
-			text-align: right;
-			padding: 3em 10em 3em 0;
+			/*text-align: right;*/
+			text-align: center;	
+			/*padding: 3em 10em 3em 0;*/
 		}
 
 			.main.style1 h2 {
