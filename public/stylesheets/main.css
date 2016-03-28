@@ -660,10 +660,16 @@
 		/*for three lines*/
 	  top: -500px;
 	  /*font-size: 30px;*/
-	  /*font-size: 25px;*/
-	  font-size: 32px;
+	  font-size: 25px;
+	  /*font-size: 30px;*/
 	  font-weight: 800;
 	  text-align: center;
+	}
+
+		.user_rank{
+		font-size: 33px;
+		/*color: #FF8C00;*/
+	  font-weight: 300;
 	}
 
 /* Post Advice (Submit.erb) */

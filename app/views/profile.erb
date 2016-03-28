@@ -43,7 +43,7 @@
               <canvas id="inactiveProgress" class="progress-inactive" height="275px" width="275px"></canvas>
             <canvas id="activeProgress" class="progress-active"  height="275px" width="275px"></canvas>
             <p>Rank</p>
-            <p><%= current_user.rank %></p>
+            <p><b class="user_rank"><%= current_user.rank %></b></p>
             <p><%= current_user.points %> <%= 'Point'.pluralize(current_user.bookmarks.count)%> </p>
           </div>
 
