@@ -328,9 +328,11 @@
 	.system_message {
 		color: #FF8C00;
 		font-size: 25px;
-		position: fixed;
-		top: 20%;
-		left: 43%;
+	/*		position: fixed;
+		left: 45%;*/
+		position: relative;
+		text-align: center;
+		top: 4em;
     -webkit-animation:system_message 0.5s 1;
     -webkit-animation-delay:2s;
     -webkit-animation-fill-mode: forwards;
@@ -341,6 +343,10 @@
 	@-webkit-keyframes system_message{
 	    from {opacity :1;}
 	    to {opacity :0;}
+	}
+
+	#profile{
+		top: 1em;
 	}
 
 /* Forms General */
@@ -467,6 +473,21 @@
 	    background-color: transparent;
 	  }
 
+	.btn-remove{
+			height: 30px;
+			font-size: 20px;
+			padding: 0.1em 0.5em 0.1em 0.5em;
+			/*line-height: -100px;*/
+			position: relative;
+			top: -35px;
+			/*left: 5em;*/
+			float: right;
+	}
+
+	.delete_icon{
+		position: relative;
+		left: -5px;
+	}
 	.btn:hover {
     color: #333;
     background-color: #e6e6e6;
@@ -478,7 +499,7 @@
 		display:block;
 		width:30px;
 		height:30px;
-		line-height:0px;
+		line-height:1px;
 		border: 1px solid #f5f5f5;
 		border-radius: 50%;
 		color:#f5f5f5;
@@ -489,9 +510,27 @@
 		font-size:15px;
 	}
 
+	.round_button:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+	}
+
+	.round_button :hover{
+		color:#fff;
+	}
+
 	#remove_bookmark{
 		position: relative;
-		top: -30px;
+		top: -32px;
+		left: 3em;
+	}
+
+	#remove_advice{
+		position: relative;
+		float: left;
+		left: -3em;
+		top: -70px;
 	}
 
 /* Profile */
@@ -503,8 +542,17 @@
 
 	.col-lg-4 {
     width: 33.33333333%;
-    height: 15em;
+    /*height: 15em;*/
+    height: 14em;
+    top: -3em;
 	}
+
+	#stats{
+		font-size: 25px;
+		position: relative;
+		top: -1.5em;
+	}
+
 		/*.col-lg-4 {
 		  width: 33.33333333%;
 		  float: left;
@@ -524,6 +572,16 @@
 	    padding-left: 15px;
 		}
 	*/
+	.col-lg-6 {
+		padding: 1.5em;
+		position: relative;
+		top: -5em;
+	}
+
+	.col-lg-12{
+		position: relative;
+		top: -5em;
+	}
 
 	#own_post{
 	    text-align:right;
@@ -534,11 +592,17 @@
 	    vertical-align:top
 	  }
 
-	#stats{
+	.bookmark_icon{
+		position: relative;
+		top: 3px;
+		left: -5px;
 	}
+
 
 	.advices{
 		padding-bottom: 1.5em;  
+		/*font-size: 30px;*/
+		/*font-weight: 800;*/	
 	}
 
 
@@ -570,7 +634,7 @@
 
 	.progress-bar1 {
 		/*text color*/
-		color: #585858;
+		/*color: #585858;*/
 		background-color: transparent;
 	  display: inline-block;
 	  width: 275px;
@@ -580,6 +644,7 @@
 	}
 	.progress-bar1 .progress-active {
 	  position: relative;
+	  /*top: -287px;*/
 	  top: -287px;
 	}
 	.progress-bar1 p {
@@ -588,21 +653,53 @@
 	  padding: 0;
 	  width: 275px;
 	  /*text off-set*/
-	  /*top: -460px;*/
-	  top: -480px;
-	  font-size: 30px;
+	  /*for one lines*/
+	  top: -460px;
+	  /*for two lines*/
+	  /*top: -480px;*/
+		/*for three lines*/
+	  top: -500px;
+	  /*font-size: 30px;*/
+	  /*font-size: 25px;*/
+	  font-size: 32px;
 	  font-weight: 800;
 	  text-align: center;
 	}
 
-/* Post Advice */
+/* Post Advice (Submit.erb) */
 	.post_comment{
 		padding-top: 8em;
 	}
 
-/* Get Advice */
-	.get_comment{
+/* Get Advice  (Show.erb) */
+	.post_quote{
 		padding-top: 3em;
+	}
+
+	/*	.post_quote h3{
+		width: 80%;
+	}*/
+
+	.post_quote h4{
+		position: relative;
+		top: 1em;
+		left: 12em;
+		text-align: center;
+		font-weight: bold;
+		font-size: 2em;
+		line-height: 1em;
+		letter-spacing: -2px;
+	}
+
+	b .poster{
+		position: relative;
+		top: 1em;
+		left: 12em;
+		text-align: center;
+		font-weight: bold;
+		font-size: 2em;
+		line-height: 1em;
+		letter-spacing: -2px;
 	}
 
 	/*	#button_left{
@@ -623,6 +720,13 @@
 			overflow:hidden;
 		} 
 	*/
+	.post_quote h3{
+		font-size: 2em;
+		letter-spacing: -1px;
+		line-height: 1.25em;
+		padding-left: 3em;
+		padding-right: 3em;
+	}
 
 	#button_left{
 		position: relative;
@@ -644,7 +748,8 @@
 	#button_right{
 		position: relative;
 		left: 20px;
-		top: 94px;
+		top: 59px;
+		/*top: 50px;*/
 		/*top: 94px;*/
 		/*top: 39px;*/
 		text-align: left;
@@ -653,15 +758,67 @@
 		overflow:hidden;
 	} 
 
-/* Popular Table */
+/* Popular */
+
+	.popular{
+		padding-top: 3em;
+
+	}
+
+	.popular h2 {
+		text-align: center;
+		font-weight: bold;
+		font-size: 2.5em;
+		line-height: 1em;
+		letter-spacing: -2px;
+	}
+
+	.popular h3 {
+		font-size: 2em;
+		line-height: 1em;
+		/*letter-spacing: -4px;*/
+	}
+
+	.popular h4 {
+		font-size: 1.5em;
+		line-height: 1em;
+		line-height: 50px;
+	}
+
+	.popular h5 {
+		font-weight: bold;
+		font-size: 1.5em;
+		line-height: 1em;
+		line-height: 50px;
+	}
+
+	.rank-ruler{
+		width: 75%;
+
+	}
 
 	.rank-table{
 		text-align: center;
+		margin-left: auto; 
+    margin-right: auto;
+    font-size: 1.2em;
 	}
 
+	.table-heading{
+		font-size: 1em;
+		font-weight: bold;
+		line-height: 2em;
+
+	}
 	td {
 		width: 10em;
 	}
+
+	.best_quotes li{
+		padding-bottom: 1.7em;
+		font-size: 18px;
+	}
+
 
 
 
@@ -2604,8 +2761,9 @@
 		}
 		/*# main content location*/
 		.main.style1 {
-			text-align: right;
-			padding: 3em 10em 3em 0;
+			/*text-align: right;*/
+			text-align: center;	
+			/*padding: 3em 10em 3em 0;*/
 		}
 
 			.main.style1 h2 {
@@ -2642,7 +2800,7 @@
 		.main.style2 {
 			text-align: center;
 			padding: 3em 0 3em 0;
-			overflow: hidden;
+			/*overflow: hidden;*/
 		}
 
 			.main.style2 .content {

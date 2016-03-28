@@ -4,33 +4,51 @@ helpers do
       User.find(session[:user_id])
     end
   end
-
   def popular_query(integer)
     query1 = Bookmark.select('distinct advice_id, count(advice_id) as count').group(:advice_id).reorder('count DESC')
-    result = query1[integer].advice_id
-    Advice.find(result).content
+    Advice.find(query1[integer].advice_id).content
   end
-
+  def popular_query_user_name(integer)
+    query1 = Bookmark.select('distinct advice_id, count(advice_id) as count').group(:advice_id).reorder('count DESC')
+    User.find(Advice.find(query1[integer].advice_id).user_id).username.capitalize
+  end
   def weekly_quote
-    weekly_quote_range = 1.days.ago.midnight...Date.tomorrow.midnight
+    weekly_quote_range = 7.days.ago.midnight...Date.tomorrow.midnight
     weekly_query = Bookmark.joins(:advice).select('distinct advice_id, count(advice_id) as count').where('advices.created_at' => weekly_quote_range).group(:advice_id).reorder('count DESC').take(1)
     if weekly_query.empty?
       @advice = "No advice is the best advice."
     else
       weekly_query_result = weekly_query[0].advice_id
       @advice = Advice.find(weekly_query_result).content
+      @advice_user_id = Advice.find(weekly_query_result).user_id
+      @weekly_advice_user_name = User.find(@advice_user_id).username
     end
     @advice
   end
+  # def daily_quote
+  #   daily_quote_range = Date.today.midnight...Date.tomorrow.midnight
+  #   daily_query = Bookmark.joins(:advice).select('distinct advice_id, count(advice_id) as count').where('advices.created_at' => daily_quote_range).group(:advice_id).reorder('count DESC').take(1)
+  #   if daily_query.empty?
+  #     @advice = "No advice is the best advice."
+  #   else
+  #     daily_query_result = daily_query[0].advice_id
+  #     @advice = Advice.find(daily_query_result).content
+  #   end
+  #   @advice
+  # end
 
+
+  # FAKE DATE FOR DEMO
   def daily_quote
-    daily_quote_range = Date.today.midnight...Date.tomorrow.midnight
+    daily_quote_range = Date.yesterday.midnight...Date.today.midnight
     daily_query = Bookmark.joins(:advice).select('distinct advice_id, count(advice_id) as count').where('advices.created_at' => daily_quote_range).group(:advice_id).reorder('count DESC').take(1)
     if daily_query.empty?
       @advice = "No advice is the best advice."
     else
       daily_query_result = daily_query[0].advice_id
       @advice = Advice.find(daily_query_result).content
+      @advice_user_id = Advice.find(daily_query_result).user_id
+      @daily_advice_user_name = User.find(@advice_user_id).username
     end
     @advice
   end
@@ -64,7 +82,7 @@ post '/submit' do
       session[:message] = "Submit successful"
       redirect "/profile"
     else 
-      session[:message] = "Oops! We could not submit your advice posting because: #{@advice.errors.full_messages[0]}"
+      session[:message] = "Oops!#{@advice.errors.full_messages[0]}"
       redirect "/submit"
     end
 end
@@ -80,7 +98,7 @@ end
 
 get '/popular' do
   if current_user
-    @users = User.order("points DESC")
+    @users = User.order("points DESC").take(5)
   end
   erb :'/popular'
 end
@@ -153,6 +171,7 @@ end
 
 post '/delete_bookmark' do
   b = Bookmark.find(params[:bookmark_id])
+  session[:message] = "Bookmark Deleted!"
   b.destroy 
   session[:message] = "Delete successful"
   redirect '/profile'
@@ -161,6 +180,7 @@ end
 
 post '/delete_advice' do
   a = Advice.find(params[:advice_id])
+  session[:message] = "Advice Deleted!"
   a.destroy
   session[:message] = "Delete successful"
   redirect '/profile'

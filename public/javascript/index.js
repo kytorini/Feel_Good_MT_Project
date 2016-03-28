@@ -18,25 +18,40 @@ $(document).ready(function(){
 				iProgressCTX.lineCap = 'square';
 
 				//outer ring
-				iProgressCTX.beginPath();
-				iProgressCTX.lineWidth = 15;
-				iProgressCTX.strokeStyle = '#e1e1e1';
-				iProgressCTX.arc(137.5,137.5,129,0,2*Math.PI);
-				iProgressCTX.stroke();
+				// iProgressCTX.beginPath();
+				// iProgressCTX.lineWidth = 15;
+				iProgressCTX.strokeStyle = '#fff';
+				// iProgressCTX.arc(137.5,137.5,129,0,2*Math.PI);
+				// iProgressCTX.stroke();
+
+				// //outer ring
+				// iProgressCTX.beginPath();
+				// iProgressCTX.lineWidth = 15;
+				// iProgressCTX.strokeStyle = '#e1e1e1';
+				// iProgressCTX.arc(137.5,137.5,129,0,2*Math.PI);
+				// iProgressCTX.stroke();
 
 				//progress bar
 				iProgressCTX.beginPath();
-				iProgressCTX.lineWidth = 0;
+				iProgressCTX.lineWidth = 8;
 				iProgressCTX.fillStyle = '#e6e6e6';
-				iProgressCTX.arc(137.5,137.5,121,0,2*Math.PI);
-				iProgressCTX.fill();
+				iProgressCTX.arc(137.5,137.5,111,0,2*Math.PI);
+				iProgressCTX.stroke();
+
+				//progress bar
+				// iProgressCTX.beginPath();
+				// iProgressCTX.lineWidth = 0;
+				// iProgressCTX.fillStyle = '#e6e6e6';
+				// iProgressCTX.arc(137.5,137.5,121,0,2*Math.PI);
+				// iProgressCTX.fill();
+
 
 				//progressbar caption
-				iProgressCTX.beginPath();
-				iProgressCTX.lineWidth = 0;
-				iProgressCTX.fillStyle = '#fff';
-				iProgressCTX.arc(137.5,137.5,100,0,2*Math.PI);
-				iProgressCTX.fill();
+				// iProgressCTX.beginPath();
+				// iProgressCTX.lineWidth = 0;
+				// iProgressCTX.fillStyle = '#fff';
+				// iProgressCTX.arc(137.5,137.5,100,0,2*Math.PI);
+				// iProgressCTX.fill();
 
 			}
 			function drawProgress(bar, percentage, $pCaption){
@@ -49,7 +64,7 @@ $(document).ready(function(){
 				barCTX.lineCap = 'square';
 
 				barCTX.beginPath();
-				barCTX.lineWidth = 20;
+				barCTX.lineWidth = 15;
 				barCTX.strokeStyle = '#FF8C00';
 				barCTX.arc(137.5,137.5,111,startingAngle, endingAngle);
 				barCTX.stroke();

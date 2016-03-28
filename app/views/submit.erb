@@ -1,6 +1,13 @@
 <section id="intro" class="main style2 dark fullscreen">
   <% if current_user %>
 
+  <section class="system_message">
+    <% if session[:message] %>
+    <strong><%= session[:message] %>!</strong>
+    <% session[:message] = nil %>
+  <% end %>
+  </section>
+
   <div class="post_comment">
 
   <strong><h3> Words matter, Choose Carefully... =) </h3></strong>
