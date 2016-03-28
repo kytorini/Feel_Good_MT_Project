@@ -3,30 +3,35 @@
 <section id="intro" class="main style2 dark fullscreen">
 <br>
 
-<div class="col-lg-6">
-<section class="popular">
- <h2>Quote of the week: </h2>
- <hr class="rank-ruler">
- <h3>" <%= weekly_quote %> "</h3>
-</section>
-</div>
 
 <div class="col-lg-6">
 <section class="popular">
- <h2>Quote of the day: </h2>
+ <h2>Quote of the day </h2>
  <hr class="rank-ruler">
- <h3>" <%= daily_quote %> "</h3>
+ <h4>" <%= daily_quote %> "<b class="poster"> - <%= @daily_advice_user_name.capitalize %></b></h4>
+<!--  <h5>- <%= @daily_advice_user_name.capitalize %></h5> -->
 </section>
 </div>
 
 
+<div class="col-lg-6">
+<section class="popular">
+ <h2>Quote of the week </h2>
+ <hr class="rank-ruler">
+ <h4>" <%= weekly_quote %> "<b class="poster"> - <%= @weekly_advice_user_name.capitalize %></b></h4>
+ <!-- <h5>- <%= @weekly_advice_user_name.capitalize %></h5> -->
+ </section>
+</div>
+
+
+
 
 <div class="col-lg-6">
 <section class="popular">
-<h2>Ranking!</h2>
+<h2>Current Ranking!</h2>
 <hr class="rank-ruler">
 <table class="rank-table">
-  <tr>
+  <tr class="table-heading">
     <td>Contributor</td>
     <td>Points</td>
     <td>Current Rank</td>
@@ -46,9 +51,9 @@
 
 <div class="col-lg-6">
 <section class="popular">
-<h2>Best MAGIC 8 Quotes: </h2>
+<h2>Best MAGIC 8 Quotes </h2>
 <hr class="rank-ruler">
-  <ol>
+  <ol class="best_quotes">
     <li><h4>" <%= popular_query(0) %> "</h4></li>
     <li><h4>" <%= popular_query(1) %> "</h4></li>
     <li><h4>" <%= popular_query(2) %> "</h4></li>
@@ -60,4 +65,3 @@
 
 
 </section>
-

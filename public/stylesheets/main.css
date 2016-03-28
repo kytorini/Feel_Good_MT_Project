@@ -484,7 +484,7 @@
 		display:block;
 		width:30px;
 		height:30px;
-		line-height:0px;
+		line-height:1px;
 		border: 1px solid #f5f5f5;
 		border-radius: 50%;
 		color:#f5f5f5;
@@ -495,14 +495,26 @@
 		font-size:15px;
 	}
 
+	.round_button:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+	.round_button :hover{
+		color:#fff;
+	}
+
 	#remove_bookmark{
 		position: relative;
-		top: -30px;
+		top: -32px;
+		left: 3em;
 	}
 
 	#remove_advice{
 		position: relative;
 		float: left;
+		left: -3em;
 		top: -70px;
 	}
 
@@ -628,9 +640,25 @@
 		padding-top: 3em;
 	}
 
+	/*	.post_quote h3{
+		width: 80%;
+	}*/
+
 	.post_quote h4{
 		position: relative;
-		left: 5em;
+		top: 1em;
+		left: 12em;
+		text-align: center;
+		font-weight: bold;
+		font-size: 2em;
+		line-height: 1em;
+		letter-spacing: -2px;
+	}
+
+	b .poster{
+		position: relative;
+		top: 1em;
+		left: 12em;
 		text-align: center;
 		font-weight: bold;
 		font-size: 2em;
@@ -714,6 +742,12 @@
 		line-height: 50px;
 	}
 
+	.popular h5 {
+		font-weight: bold;
+		font-size: 1.5em;
+		line-height: 1em;
+		line-height: 50px;
+	}
 
 	.rank-ruler{
 		width: 75%;
@@ -721,15 +755,25 @@
 	}
 
 	.rank-table{
-		position: relative;
 		text-align: center;
+		margin-left: auto; 
+    margin-right: auto;
+    font-size: 1.2em;
 	}
 
+	.table-heading{
+		font-size: 1em;
+		font-weight: bold;
+		line-height: 2em;
+
+	}
 	td {
 		width: 10em;
 	}
 
-
+	.best_quotes li{
+		padding-bottom: 1.7em;
+	}
 
 
 /* Containers */

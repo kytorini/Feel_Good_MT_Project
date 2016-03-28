@@ -94,10 +94,10 @@
     <ol>
       <% @bookmarks.map do |bookmark| %>
       <li class="advices">
-        <span>" <%= "#{bookmark.advice.content}" %> "</span>
+        <span>" <%= "#{bookmark.advice.content}" %> " </span>
         <form action="/delete_bookmark" method="POST">
          <input type="hidden" name="bookmark_id" value="<%= bookmark.id %>">
-         <input class="round_button" id="remove_bookmark" type="submit" value="X">
+         <input class="round_button" id="remove_bookmark" type="submit" value="X" title='Remove Bookmark'>
         </form>
       </li>
      <% end %>
