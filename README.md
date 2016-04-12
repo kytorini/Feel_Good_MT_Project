@@ -1,10 +1,4 @@
-Sinatra
-=============
+Created in March 2016 by Lighthouse Labs students Kevin Hung, James McKeen and Nina Winkler, Magic 8 Me is a user-driven App encouraging sharing of knowledge, opening of perception and connecting users through quote-sharing. This Web App allows users to receive a randomly generated quote by clicking 'Get Quote', post quotes to the databases by clicking 'Post Quote' and bookmark quotes they have viewed. These quotes appear on their profile and can be deleted at any moment by the user, creating a 'Quote Wall' which can constantly evolve.  
 
-Brought to you by Lighthouse Labs
+Users can see the popularity of the quotes they have posted and gain rank, such as 'Deepak Chopra' and 'Socrates' based on the amount of quotes they have posted and the amount of times their quotes have been bookmarked. The constantly-changing 'What's Popular?' page posts stats based on most bookmarked quotes of the day and week and highest ranking users. The app also takes into account that not all users have positive intentions and implements a 'flagging' system. Quotes gain health when they are bookmarked and lose health when they are flagged. If quotes are constantly flagged and not bookmarked, they are automatically deleted, making this app self-policing and easy to maintain.
 
-## Getting Started
-
-1. `bundle install`
-2. `shotgun -p 3000 -o 0.0.0.0`
-3. Visit `http://localhost:3000/` in your browser
